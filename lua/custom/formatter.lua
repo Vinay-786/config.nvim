@@ -4,8 +4,10 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "isort", "black" },
-				javascript = { "prettierd", "prettier", stop_after_first = true },
+				python = { "black" },
+				javascript = { "prettier", stop_after_first = true },
+				go = { "gofumpt" },
+				cpp = { "clang-format" },
 			},
 			format_on_save = {
 				-- I recommend these options. See :help conform.format for details.

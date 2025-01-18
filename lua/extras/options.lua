@@ -6,7 +6,7 @@ local opt = vim.opt
 -- opt.inccommand = "split"
 
 -- completion options
-opt.completeopt = { "menu", "menuone", "noselect", 'popup'}
+opt.completeopt = { "menu", "menuone", "noselect", 'popup' }
 opt.pumblend = 30
 -- opt.pumwidth = 20
 -- opt.pumheight = 10
@@ -42,3 +42,6 @@ opt.scrolloff = 10
 
 opt.tabstop = 4
 opt.shiftwidth = 4
+
+
+opt.guifont = "monospace:17"

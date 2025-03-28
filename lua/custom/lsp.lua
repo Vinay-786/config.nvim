@@ -35,6 +35,10 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.omnisharp.setup({
+				cmd = { "dotnet", "/usr/bin/dotnet" },
+				capabilities = capabilities,
+			})
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 				cmd = {
@@ -43,6 +47,9 @@ return {
 					"stable",
 					"rust-analyzer",
 				},
+			})
+			lspconfig.zls.setup({
+				capabilities = capabilities,
 			})
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
@@ -59,8 +66,11 @@ return {
 			lspconfig.elp.setup({
 				capabilities = capabilities,
 			})
+			local svelte_lsp_capabilities = vim.tbl_deep_extend("force", {}, capabilities)
+			svelte_lsp_capabilities.workspace = { didChangeWatchedFiles = false }
 			lspconfig.svelte.setup({
-				capabilities = capabilities,
+				capabilities = svelte_lsp_capabilities,
+				filetypes = { "svelte" },
 			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
